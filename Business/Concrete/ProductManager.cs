@@ -33,10 +33,10 @@ namespace Business.Concrete
 
         public IDataResult<List<Product>> GetAll()
         {
-            if(DateTime.Now.Hour ==19)
-            {
-                return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime); //ErrorResult da olur
-            }
+            //if (DateTime.Now.Hour == 20)
+            //{
+            //    return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime); //ErrorResult da olur
+            //}
             return new SuccessDataResult<List<Product>>(_productDal.GetAll(),Messages.ProductsListed);
         }
         public IDataResult<List<Product>> GetAllByCategoryId(int id)
