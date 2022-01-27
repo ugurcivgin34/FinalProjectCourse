@@ -33,13 +33,13 @@ namespace WebAPI
             //Autofac bize aop imkaný saðlýyor
             //Autofac,Ninject,CastleWindsor,StructureMap,LightInJect -->IoC Container
             services.AddControllers();
-            services.AddSingleton<IProductService,ProductManager>();
+            //services.AddSingleton<IProductService,ProductManager>();
             //Biri constructor da IProductService verirse onun karþýlýðýnda ProductManager i newleyip referansýný veriyor
             //Arka planda referans oluþturur.IoC ler bizim yerimize new liyor
             //Yani IProductService þeklinde birþey görürsen onun karþýlýðý ProductManager þeklinde tanýmlatýyoruz.Yani arka planda newliyor.
             //Singleton tüm bellekte bir tane productmanager oluþturuyor.bin tane client gelsin bir kere newlediði için bir kere ayný insteans ý hep veriyor.
             //Ýçinde data tutmuyorsak bunu kullanmak mantýklý
-            services.AddSingleton<IProductDal, EfProductDal>();
+            //services.AddSingleton<IProductDal, EfProductDal>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI", Version = "v1" });
