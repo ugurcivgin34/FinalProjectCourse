@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Autofac.Extras.DynamicProxy;
 using Business.Abstract;
+using Business.CCS;
 using Business.Concrete;
 using Castle.DynamicProxy;
 using Core.Utilities.Interceptors;
@@ -24,9 +25,17 @@ namespace Business.DependencyResolvers.Autofac
         //Uygulama ayağı kalktığında Load her zaman çalışır
         protected override void Load(ContainerBuilder builder)
         {
+            //Bu yapı bellekte newleme yapıyor yani referans oluşturuyor.Bunu reflection ile yapıyor
             builder.RegisterType<ProductManager>().As<IProductService>().SingleInstance(); //biri senden IProductService isterse sen ona ProductManager insteansını ver
             //newleme yapıyor bir nevi aslında.SingleInstans diyerek 1 kere instead ı üretmesini sağladık.
             builder.RegisterType<EfProductDal>().As<IProductDal>().SingleInstance();
+
+            builder.RegisterType<CategoryManager>().As<ICategoryService>().SingleInstance();
+            builder.RegisterType<EfCategoryDal>().As<ICategoryDal>().SingleInstance();
+
+
+
+
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
