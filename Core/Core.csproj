@@ -12,4 +12,9 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.13" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Security\Encryption\" />
+    <Folder Include="Security\JWT\" />
+  </ItemGroup>
+
 </Project>

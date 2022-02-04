@@ -30,7 +30,18 @@ namespace Business.Concrete
             _categoryService = categoryService;
         }
 
-        //[ValidationAspect(typeof(ProductValidator))]
+        //Claim => product.add,admin bunlar birer claim dir.Anahtar demek
+        //jwt=> json web token. client istek atar api ye , kullanıcı kayıt olunca jwt ile client e gönderir
+        //karşı tarafta da local storage , cooki ,mobil tarafda saklanan bir veri kaynağı da olbilir. Jwt buralarda saklanır
+        //salting = tuzlama yani kullanıcnın girdiği parolayı daha da güçlendirmek için yapılan bir yapı
+        //encrpytion => şifreleme . Verinin tamamını encript etmiş oluyoruz.Şifrelemek
+        //decprtion => o şifreyi çözmek
+        //hash = > veriyi hashlemiyoruz . Datayı belli bir algoritmaya göre hashliyoruz . data oluşuyor yani.Ama bu data nın karşılığı o baştaki data değil
+        //encrtption ile key oluşturuyoruz aslında . 
+        //ev örneği gibi. Evden çıkarken kapıyı kitliyoruz , girerken de kapıyı açıp giriyoruz.Çıkarken enctpriton girerken decprtion yapıyoruz
+
+        [SecuredOperation("product.add,admin")]
+        [ValidationAspect(typeof(ProductValidator))]
         public IResult Add(Product product)
         {
             IResult result = BusinessRules.Run(CheckIfProductCountOfCategoryCorrect(product.CategoryId),
