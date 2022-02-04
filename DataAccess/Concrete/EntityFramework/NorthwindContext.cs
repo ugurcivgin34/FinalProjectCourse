@@ -14,7 +14,7 @@ namespace DataAccess.Concrete.EntityFramework
         //Proje hangi veritabanı ile ilişkili olduğunu belirttiğimiz kısım
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-7H18640;Database=Northwind;Trusted_Connection=true"); 
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-TG02SQ0;Database=Northwind;Trusted_Connection=true"); 
             //@ koyarız ki ters slash ı anlasın yoksa c#da başka anlamı var
             //Trusted_Connection=true yapmamızın sebebi ise kulanıcı adı ve şifre kullanmaya gerek olmadığını belirttik
         }
