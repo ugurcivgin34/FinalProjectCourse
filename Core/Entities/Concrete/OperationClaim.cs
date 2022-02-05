@@ -1,5 +1,6 @@
 ﻿namespace Core.Entities.Concrete
 {
+    //Kullanıcının rolleri
     public class OperationClaim:IEntity
     {
 
