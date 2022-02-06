@@ -3,6 +3,7 @@ using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace ConsoleUI
@@ -25,56 +26,58 @@ namespace ConsoleUI
             //Console.WriteLine(methodInfo.Invoke(instance, null));  //invoke onu çalıştırıyor yani metodu
             //hangi örneğin topla2 sini ını çalıştırıyoruz  anlamına geliyor
 
-        //    Console.WriteLine("---------------------------");
+            //    Console.WriteLine("---------------------------");
 
-        //    var metodlar = tip.GetMethods();
-        //    foreach (var info in metodlar)
-        //    {
-        //        Console.WriteLine("Metod adı : {0}" , info.Name);
-        //        foreach (var parameterInfo in info.GetParameters())
-        //        {
-        //            Console.WriteLine("Parametre : {0}",parameterInfo.Name);
+            //    var metodlar = tip.GetMethods();
+            //    foreach (var info in metodlar)
+            //    {
+            //        Console.WriteLine("Metod adı : {0}" , info.Name);
+            //        foreach (var parameterInfo in info.GetParameters())
+            //        {
+            //            Console.WriteLine("Parametre : {0}",parameterInfo.Name);
 
-        //        }
-        //        foreach (var attibute in info.GetCustomAttributes())
-        //        {
-        //            Console.WriteLine("Attribute Name:{0}",attibute.GetType().Name);
-        //        }
-        //    }
+            //        }
+            //        foreach (var attibute in info.GetCustomAttributes())
+            //        {
+            //            Console.WriteLine("Attribute Name:{0}",attibute.GetType().Name);
+            //        }
+            //    }
 
 
 
-        //}
+            //}
 
-        //public class DortIslem
-        //{
-        //    private int _sayi1;
-        //    private int _sayi2;
+            //public class DortIslem
+            //{
+            //    private int _sayi1;
+            //    private int _sayi2;
 
-        //    public DortIslem(int sayi1,int sayi2)
-        //    {
-        //        _sayi1 = sayi1;
-        //        _sayi2 = sayi2;
-        //    }
-        //    public DortIslem()
-        //    {
+            //    public DortIslem(int sayi1,int sayi2)
+            //    {
+            //        _sayi1 = sayi1;
+            //        _sayi2 = sayi2;
+            //    }
+            //    public DortIslem()
+            //    {
 
-        //    }
-        //    public int Topla(int sayi1,int sayi2)
-        //    {
-        //        return sayi1 + sayi2;
-        //    }
+            //    }
+            //    public int Topla(int sayi1,int sayi2)
+            //    {
+            //        return sayi1 + sayi2;
+            //    }
 
-        //    [MetodName("Çarpma")]
-        //    public int Topla2()
-        //    {
-        //        return _sayi2 + _sayi1;
-        //    }
-
+            //    [MetodName("Çarpma")]
+            //    public int Topla2()
+            //    {
+            //        return _sayi2 + _sayi1;
+            //    }
+            List<string> isimler = new List<string>();
 
 
             
-        }
+        } //MAIN SONU
+        
+       
 
         //private static void CategoryTest()
         //{

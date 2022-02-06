@@ -19,6 +19,7 @@ namespace Business.Abstract
         IDataResult<Product> GetById(int productId);
         IResult Update(Product product);
         //Restful -->Http -->
+        IResult AddTransctionalTest(Product product);
 
     }
 }

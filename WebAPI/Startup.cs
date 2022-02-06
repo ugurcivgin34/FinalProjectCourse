@@ -1,5 +1,7 @@
 using Business.Abstract;
 using Business.Concrete;
+using Core.DependecnyResolvers;
+using Core.Extensions;
 using Core.Utilities.IoC;
 using Core.Utilities.Security.Encryption;
 using Core.Utilities.Security.JWT;
@@ -46,7 +48,8 @@ namespace WebAPI
             //Singleton tüm bellekte bir tane productmanager oluþturuyor.bin tane client gelsin bir kere newlediði için bir kere ayný insteans ý hep veriyor.
             //Ýçinde data tutmuyorsak bunu kullanmak mantýklý
             //services.AddSingleton<IProductDal, EfProductDal>();
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+           
+
 
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();//using Core.Utilities.Security.JWT;
 
@@ -64,7 +67,11 @@ namespace WebAPI
                         IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
                     };
                 });
-            //ServiceTool.Create(services);
+
+            services.AddDependencyResolvers(new ICoreModule[] { 
+                new CoreModule()
+            });//bir sürü modül oluþturup ekleyebiliriz
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI", Version = "v1" });
