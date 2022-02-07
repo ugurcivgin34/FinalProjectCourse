@@ -9,6 +9,8 @@ namespace Core.CrossCuttingConcerns.Validation
 {
     public static class ValidationTool
     {
+        //ProductValidator şeklinde bir validator tanımladık.Aslında onu kastetiyor IValidator.yani aşağıda metodun içinde productvalidator ve product ı vermiş olduk
+        //Doğrulamayı sağlayacak yapı,doğrulanacak class
         public static void Validate(IValidator validator,object entity) //entity,dto ekleyebiliriz.o yüzden object tanımladık,herşeyin base i çünkü
         {
 

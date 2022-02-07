@@ -9,8 +9,12 @@ namespace Core.Utilities.Interceptors
 {
     public abstract class MethodInterception : MethodInterceptionBaseAttribute
     {
-        //invocation : business method
+        //invocation : business method...Virtiual metodlar ezilmeyi bekleyen metodlardır.Bir aspect yazdığımız zaman,metodun neresinde çalışmasını istiyorsak
+        //aşağıdaki ilgili Metod ları kullanırız.Aspect demek bu classı temel alan ve hangisi çalışssın istiyorsak onu içeren
+        //operasyondur.
         protected virtual void OnBefore(IInvocation invocation) { }
+        //IInvocation invocation burda metod demektir .Yani Add,Delete,Update,GetAll,GetById gibi metodlardır
+
         protected virtual void OnAfter(IInvocation invocation) { }
         protected virtual void OnException(IInvocation invocation, System.Exception e) { }
         protected virtual void OnSuccess(IInvocation invocation) { }

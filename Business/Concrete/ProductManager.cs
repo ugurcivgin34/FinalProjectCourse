@@ -50,6 +50,15 @@ namespace Business.Concrete
         [CacheRemoveAspect("IProductService.Get")]
         public IResult Add(Product product)
         {
+            //var context = new ValidationContext<Product>(product);
+            //ProductValidator validation = new ProductValidator();
+            //var result = validation.Validate(context);
+            //if (!result.IsValid)
+            //{
+            //    throw new ValidationException(result.Errors);
+            //}
+            //ValidationTool.Validate(new ProductValidator(),product);
+
             IResult result = BusinessRules.Run(CheckIfProductCountOfCategoryCorrect(product.CategoryId),
                   CheckIfProductNameExists(product.ProductName),
                   CheckIfCategoryLimitExceded());

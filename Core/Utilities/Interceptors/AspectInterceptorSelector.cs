@@ -14,8 +14,10 @@ namespace Core.Utilities.Interceptors
         {
             var classAttributes = type.GetCustomAttributes<MethodInterceptionBaseAttribute> //git classın attributelerini oku
                 (true).ToList();
+
             var methodAttributes = type.GetMethod(method.Name)
                 .GetCustomAttributes<MethodInterceptionBaseAttribute>(true); //ilgili metodun attributelerini oku
+
             classAttributes.AddRange(methodAttributes);  // // onları listeye koy
             
 

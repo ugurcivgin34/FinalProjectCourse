@@ -21,6 +21,8 @@ namespace Business.DependencyResolvers.Autofac
     //geldiğinde ona karşılık b somut classını ver anlamında bir yapı kurduk.O yapıyı buraya taşıyacağız.Yarın bir gün api
     //değişebilir.Api katmanına bağlı olmasını istemedik
 
+    //Ayrıca IoC yönetimini .netin kendi yapısı ile yapabilirdik.Autofac ile de yapmamızın asıl sebeplerinden diğeri de aop yönetimi sağlaması
+
     //Autofac aynı zaman da AOP yapısını da kurmamızı sağlar
     public class AutofacBusinessModule : Module
     {
@@ -47,11 +49,12 @@ namespace Business.DependencyResolvers.Autofac
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
-            builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
+            builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces() //Çalışan uygulama içerisinde impelemnt edilmiş interfaceleri bulup,onlar için AspectInterceptorSelector çağır
                 .EnableInterfaceInterceptors(new ProxyGenerationOptions()
                 {
                     Selector = new AspectInterceptorSelector()
                 }).SingleInstance();
         }
+        //burası yani tüm sınıflar için aspect varmı ona bak diyor .Önce ona bakacak yani
     }
 }

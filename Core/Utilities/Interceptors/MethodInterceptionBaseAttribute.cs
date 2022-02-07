@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace Core.Utilities.Interceptors
 {
+
+    //classlara yada metodlara ekleyebilirsin,birden fazla yere ekleyebilirsin , inheretnce ypaılan yere de ekleyebilirsin
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true, Inherited = true)]
-    public abstract class MethodInterceptionBaseAttribute : Attribute, IInterceptor
+    public abstract class MethodInterceptionBaseAttribute : Attribute, IInterceptor //autofac in aop kısmı da var
     {
         public int Priority { get; set; } //Hangi priority önce çalışsın , loglama ,yetkilendirme vs
 
