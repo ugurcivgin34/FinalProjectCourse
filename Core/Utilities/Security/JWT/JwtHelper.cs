@@ -16,8 +16,10 @@ namespace Core.Utilities.Security.JWT
     public class JwtHelper : ITokenHelper
     {
         //using Microsoft.Extensions.Configuration;
-        public IConfiguration Configuration { get; } //Api deki appsetting.json u okumaya yarar
-        private TokenOptions _tokenOptions; //IConfiguration da appsetting.json da okudğumuz verileri TokenOptions a aktarcaz.Aşağıda mapleyip aktardık
+        public IConfiguration Configuration { get; } //asp.net web Api deki appsetting.json u okumaya yarar
+        private TokenOptions _tokenOptions; //IConfiguration da appsetting.json da okudğumuz verileri TokenOptions a aktarcaz.Aşağıda mapleyip aktardık.
+        //Zaten bunu class şekilde tanımlayıp appsetting.json daki jwt özelliklerinin aynısını classın özellikleri olarak verdik.
+
         private DateTime _accessTokenExpiration;
         public JwtHelper(IConfiguration configuration)
         {

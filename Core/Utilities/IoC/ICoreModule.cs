@@ -9,6 +9,7 @@ namespace Core.Utilities.IoC
 {
     public interface ICoreModule
     {
+        //Genel bağımlılıkları yüklemek için
         void Load(IServiceCollection serviceCollection);
     }
 }

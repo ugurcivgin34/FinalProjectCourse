@@ -16,7 +16,7 @@ using Microsoft.Extensions.DependencyInjection;
 namespace Business.BusinessAspect.Autofac
 {
 
-    //jwt
+    //Security aspectleri business de yazılır herzaman.Çünkü her business ın kendine göre securitysi değişebilir
     public class SecuredOperation : MethodInterception
     {
         private string[] _roles;
@@ -29,6 +29,11 @@ namespace Business.BusinessAspect.Autofac
             _httpContextAccessor = ServiceTool.ServiceProvider.GetService<IHttpContextAccessor>(); //using Microsoft.Extensions.DependencyInjection;
             //  productService = ServiceTool.ServiceProvider.GetService<IProductService>();
             //windowsform da çalıştığımızı düşünürsek yukarıdaki gibi yapabiliriz
+            //belki api ile çalışmayacaz.O yüzden servicetool yaptık
+
+            //Api den business business den dalı .ağırıyor.Yani bir zincir var.Fakat burda aspect bu zincirin içinde yok.Yani burda injection yaparsak başarılı olamayız
+            //asp.web.api bunu göremez..Aspect zincirin içinde değil.Bu yüzden burdaki depencyleri yakalayabilmemiz için servicetool yapısını kurduk
+            //Özetlemek gerekirse bu kod autofac ile kendi servis mimarimi oluşturdumuğumuz yapıya ulaşıp kullancak
 
         }
 
