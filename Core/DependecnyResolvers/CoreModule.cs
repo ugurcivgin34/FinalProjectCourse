@@ -19,6 +19,7 @@ namespace Core.DependecnyResolvers
         {
             //arka planda hazır bir ICacheManager instance oluşturuyor.IoC de insteasımız var
             serviceCollection.AddMemoryCache();//MemoryCacheManager daki  IMemoryCache _memoryCache yı enjekte etmiş olduk
+                                               //.net core kendisi injec yapıyor.IMemoryCache sadece enjekte oluyor
 
             serviceCollection.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();//Aşağıdaki install 
                                                                                         //Her yapılan istekle ilgili oluşan contex,bizim clienatımız bir istek yaptığı zaman o isteğin başlagıncıdnan bitişine kadar yani

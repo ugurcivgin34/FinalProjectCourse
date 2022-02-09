@@ -48,8 +48,8 @@ namespace WebAPI
             //Singleton tüm bellekte bir tane productmanager oluþturuyor.bin tane client gelsin bir kere newlediði için bir kere ayný insteans ý hep veriyor.
             //Ýçinde data tutmuyorsak bunu kullanmak mantýklý
             //services.AddSingleton<IProductDal, EfProductDal>();
-           
 
+           
 
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();//using Core.Utilities.Security.JWT;
 

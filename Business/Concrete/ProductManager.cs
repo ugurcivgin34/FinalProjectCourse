@@ -9,6 +9,7 @@ using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Business;
+using Core.Utilities.IoC;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using DataAccess.Concrete.InMemory;
@@ -20,6 +21,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Business.Concrete
 {
@@ -32,6 +34,7 @@ namespace Business.Concrete
         {
             _productDal = productDal;
             _categoryService = categoryService;
+
         }
 
         //Claim => product.add,admin bunlar birer claim dir.Anahtar demek
@@ -45,9 +48,9 @@ namespace Business.Concrete
         //ev örneği gibi. Evden çıkarken kapıyı kitliyoruz , girerken de kapıyı açıp giriyoruz.Çıkarken enctpriton girerken decprtion yapıyoruz
 
 
-        [SecuredOperation("product.add,admin")]
-        [ValidationAspect(typeof(ProductValidator))]
-        [CacheRemoveAspect("IProductService.Get")]
+        //[SecuredOperation("product.add,admin")]
+        //[ValidationAspect(typeof(ProductValidator))]
+        //[CacheRemoveAspect("IProductService.Get")]
         public IResult Add(Product product)
         {
             //var context = new ValidationContext<Product>(product);
