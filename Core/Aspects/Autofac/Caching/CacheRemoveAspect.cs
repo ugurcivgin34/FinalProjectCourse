@@ -7,7 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 namespace Core.Aspects.Autofac.Caching
 {
     //Datamız bozulduğu zaman yani yeni data eklenirse,data güncellenirse ,data silinirse CacheRemove u kallanırız
-    //Yani manager da cache yönetimi yaparken o manager da veriyi manipüle eden  yani bozulan metotlara bunu uygularız
+    //Yani manager da cache yönetimi yaparken o manager da veriyi manipüle eden  yani bozulan metotlara bunu uygularız 
+
     public class CacheRemoveAspect : MethodInterception
     {
         private string _pattern;
